@@ -22,4 +22,8 @@ BLKNAME=sdX
 sudo parted /dev/${BLKNAME} --script mklabel gpt mkpart ext4part ext4 0% 100%
 sudo mkfs.xfs /dev/${BLKNAME}1
 sudo partprobe /dev/${BLKNAME}1
+
+sudo mkdir /DATA
+sudo mount /dev/${BLKNAME}1 /DATA
+sudo chown -R $USER:$USER /DATA
 ```
