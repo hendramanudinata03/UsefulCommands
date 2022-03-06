@@ -20,7 +20,7 @@ chmod u+x .git/hooks/commit-msg
 BLKNAME=sdX
 
 sudo parted /dev/${BLKNAME} --script mklabel gpt mkpart ext4part ext4 0% 100%
-sudo mkfs.xfs /dev/${BLKNAME}1
+sudo mkfs.ext4 /dev/${BLKNAME}1
 sudo partprobe /dev/${BLKNAME}1
 
 sudo mkdir /DATA
