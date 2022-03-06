@@ -14,3 +14,12 @@ sudo apt install gh
 curl -Lo .git/hooks/commit-msg http://review.lineageos.org/tools/hooks/commit-msg
 chmod u+x .git/hooks/commit-msg
 ```
+
+## [Azure] Mount Disk to Linux VM
+```bash
+BLKNAME=sdX
+
+sudo parted /dev/${BLKNAME} --script mklabel gpt mkpart ext4part ext4 0% 100%
+sudo mkfs.xfs /dev/${BLKNAME}1
+sudo partprobe /dev/${BLKNAME}1
+```
